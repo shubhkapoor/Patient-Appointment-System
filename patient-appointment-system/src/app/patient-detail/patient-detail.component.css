@@ -1,0 +1,12 @@
+.center {
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+ol li {
+    font-weight:bold;
+}
+li > div {
+    font-weight:normal;
+}

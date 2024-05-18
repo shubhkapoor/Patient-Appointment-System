@@ -1,0 +1,42 @@
+<div class="container" *ngIf="patient">
+
+    <div class="">
+        <h2 style="text-align: center; margin-top: 10px; margin-bottom: 10px;">Patient Details</h2>
+    </div>
+
+    <!-- <p><strong>Name: </strong> {{ patient.name }}</p>
+    <p><strong>Mobile: </strong> {{ patient.mobile }}</p>
+    <p><strong>Email: </strong> {{ patient.email }}</p>
+    <p><strong>Appointment Details: </strong></p>
+     -->
+
+    <div class="">
+        <table class="table table-bordered center" style="width: 500px;">
+            <tbody>
+                <tr>
+                    <th class="table-info" scope="row" style="width: 20px;">Name:</th>
+                    <td>{{ patient.name }}</td>
+                </tr>
+                <tr>
+                    <th class="table-info" scope="row">Mobile:</th>
+                    <td>{{ patient.mobile }}</td>
+                </tr>
+                <tr>
+                    <th class="table-info" scope="row">Email:</th>
+                    <td>{{ patient.email }}</td>
+                </tr>
+                <tr>
+                    <th class="table-info" scope="row">Appointment Details:</th>
+                    <td>
+                        <ol>
+                            <li *ngFor="let appointment of appointments">
+                              <div> <strong>Date: </strong> {{ appointment.appointment_date_time | date:'medium' }} <br> <strong>Notes: </strong> {{ appointment.notes }}</div>
+                              <!-- Display other appointment details -->
+                            </li>
+                        </ol>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

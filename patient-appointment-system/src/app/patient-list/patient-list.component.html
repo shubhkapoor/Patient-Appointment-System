@@ -1,0 +1,60 @@
+<div class="container">
+    <div class="container-fluid">
+        <h2 style="text-align: center; margin-top: 10px; margin-bottom: 10px;">Patient List</h2>
+    <!-- 
+<ul>
+    <li *ngFor="let patient of patients">
+        <span>Name: {{ patient.name }} || </span>
+        <span>Mobile: {{ patient.mobile }} || </span>
+        <span>Email: {{ patient.email }} || </span>
+    </li>
+</ul> -->
+
+
+    <!-- <div class="form-inline">
+    <label class="sr-only" for="inlineFormInputGroup">Search</label>
+    <div class="input-group mb-2">
+        <div class="input-group-prepend">
+            <div class="input-group-text">
+                <i class="fa fa-search"></i>
+            </div>
+        </div>
+        <input type="search" class="form-control" placeholder="Search by Branch Name" [(ngModel)]="searchQuery"
+            (input)="searchFilter()">
+    </div>
+</div> -->
+
+
+    <div class="mb-2">
+        <input type="text" [(ngModel)]="searchQuery" (input)="searchPatients()" placeholder="Search by name">
+        <button (click)="searchPatients()">Search</button>
+    </div>
+
+
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th scope="col" style="width: 20px;">S.No.</th>
+                <th scope="col" style="width: 50px;">Name</th>
+                <!-- <th scope="col" style="width: 50px;">Mobile</th>
+                <th scope="col" style="width: 50px;">Email</th> -->
+                <th scope="col" style="width: 50px;">View Details</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let patient of filteredPatients; index as i">
+                <th scope="row">{{i+1}}</th>
+                <td>{{ patient.name }}</td>
+                <!-- <td>{{ patient.mobile }}</td>
+                <td>{{ patient.email }}</td> -->
+                <td>
+                    <a [routerLink]="['/patient', patient.id]"><i class="fa fa-eye" style="color: black;"></i></a>
+                </td>
+
+
+            </tr>
+        </tbody>
+    </table>
+    </div>
+</div>

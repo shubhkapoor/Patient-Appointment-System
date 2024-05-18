@@ -1,0 +1,42 @@
+<div class="container">
+    <div>
+        <h2 style="text-align: center; margin-top: 10px; margin-bottom: 10px;">Appointments Scheduled</h2>
+    </div>
+    
+    
+    <!-- <ul>
+      <li *ngFor="let appointment of appointments">
+        <div>
+          <strong>Patient ID:</strong> {{ appointment.patient_id }}
+        </div>
+        <div>
+          <strong>Date & Time:</strong> {{ appointment.appointment_date_time | date: 'medium' }}
+        </div>
+        <div>
+          <strong>Notes:</strong> {{ appointment.notes }}
+        </div>
+      </li>
+    </ul> -->
+    
+    
+    <table class="table table-sm">
+        <thead>
+          <tr>
+            <th scope="col" style="width: 50px;">S.No.</th>
+            <th scope="col" style="width: 50px;">Patient Name</th>
+            <!-- <th scope="col" style="width: 50px;">Patient ID</th> -->
+            <th scope="col" style="width: 50px;">Date & Time</th>
+            <th scope="col" style="width: 50px;">Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let appointment of appointments; index as i">
+            <th scope="row"> {{ i+1 }} </th>
+            <td scope="row"> {{ appointment.patientName }} </td>
+            <!-- <td scope="row"> {{ appointment.patient_id }} </td> -->
+            <td scope="row"> {{ appointment.appointment_date_time | date: 'medium' }} </td>
+            <td scope="row"> {{ appointment.notes }} </td>
+          </tr>
+        </tbody>
+      </table>
+</div>
