@@ -10,14 +10,14 @@ export class PatientService {
 
   private apiUrl = 'http://localhost:3000/patients';
 
-  constructor(private http : HttpClient) { }
+  constructor(private http: HttpClient) { }
 
   createPatient(patient: Patient): Observable<Patient> {
-    return this.http.post<Patient>(this.apiUrl , patient);
+    return this.http.post<Patient>(this.apiUrl, patient);
   }
 
   listsPatient(): Observable<Patient[]> {
-    return this.http.get<Patient[]>(this.apiUrl).pipe(map((data:any) => data.data));
+    return this.http.get<Patient[]>(this.apiUrl).pipe(map((data: any) => data.data));
   }
 
   searchPatients(name: string): Observable<Patient[]> {

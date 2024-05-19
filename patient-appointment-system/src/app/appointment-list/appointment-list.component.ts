@@ -11,26 +11,28 @@ import { PatientService } from '../patient.service';
 export class AppointmentListComponent implements OnInit {
 
   appointments: any[] = [];
-  patientId : string = '';
+  patientId: string = '';
 
-  constructor(private appointmentService : AppointmentService, private patientService : PatientService) {}
+  constructor(private appointmentService: AppointmentService, private patientService: PatientService) { }
 
   ngOnInit(): void {
     this.loadAppointments();
   }
 
   loadAppointments() {
-    this.appointmentService.getAllAppointments().subscribe(appointments=>{
-      this.appointments = appointments;
+    this.appointmentService.getAllAppointments().subscribe(appointments => {
+      // this.appointments = appointments;
+      this.appointments = appointments.sort((a, b) => new Date(a.appointment_date_time).getTime() - new Date(b.appointment_date_time).getTime())
       this.getAppointmentPatientNames();
     });
   }
-  
+
 
   getAppointmentPatientNames() {
-    this.appointments.forEach(appointment=>{
+    this.appointments.forEach(appointment => {
       this.patientService.getPatientById(appointment.patient_id).subscribe(patient => {
         appointment.patientName = patient.name;
+        appointment.mobile = patient.mobile;
       })
     })
   }

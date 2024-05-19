@@ -12,21 +12,21 @@ export class AppointmentService {
 
   private apiurl = 'http://localhost:3000/appointments';
 
-  constructor(private http:HttpClient, private patientService:PatientService) { }
+  constructor(private http: HttpClient, private patientService: PatientService) { }
 
-  createAppointment(appointment : Appointment):Observable<Appointment> {
-    return this.http.post<Appointment>(this.apiurl , appointment);
+  createAppointment(appointment: Appointment): Observable<Appointment> {
+    return this.http.post<Appointment>(this.apiurl, appointment);
   }
 
-  getAllAppointments():Observable<Appointment[]> {
-    return this.http.get<Appointment[]>(this.apiurl).pipe(map((data:any) => data.data));;
+  getAllAppointments(): Observable<Appointment[]> {
+    return this.http.get<Appointment[]>(this.apiurl).pipe(map((data: any) => data.data));;
   }
 
-  getAppointmentsForPatient(patientId:string):Observable<Appointment[]> {
+  getAppointmentsForPatient(patientId: string): Observable<Appointment[]> {
     return this.http.get<Appointment[]>(`${this.apiurl}/${patientId}/appointments`);
   }
 
-  generatePaymentLink(appointmentId:string):Observable<any> {
-    return this.http.post<any>(`${this.apiurl}/${appointmentId}/payment-link` , {});
+  generatePaymentLink(appointmentId: string): Observable<any> {
+    return this.http.post<any>(`${this.apiurl}/${appointmentId}/payment-link`, {});
   }
 }

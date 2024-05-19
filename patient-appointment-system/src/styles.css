@@ -1,1 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
+h1,
+h2 {
+    font-family: Georgia, serif;
+    font-size: 40px;
+}
+
+h2 {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 40px;
+}

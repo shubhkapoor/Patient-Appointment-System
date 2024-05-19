@@ -11,17 +11,17 @@ import { Appointment } from '../appointment';
   styleUrls: ['./patient-detail.component.css']
 })
 export class PatientDetailComponent implements OnInit {
-  patient:any;
-  appointments : Appointment[] = [];
+  patient: any;
+  appointments: Appointment[] = [];
 
-  constructor(private route : ActivatedRoute , private patientService : PatientService, private appointmentService : AppointmentService) { }
+  constructor(private route: ActivatedRoute, private patientService: PatientService, private appointmentService: AppointmentService) { }
 
   ngOnInit(): void {
-    this.route.paramMap.subscribe(params=>{
+    this.route.paramMap.subscribe(params => {
       const patient_id = params.get('id');
       console.log(patient_id);
-      
-      if(patient_id) {
+
+      if (patient_id) {
         this.patientService.getPatientById(patient_id).subscribe(result => {
           // console.log("Patient=> " + JSON.stringify(result));
           this.patient = result;
@@ -32,7 +32,7 @@ export class PatientDetailComponent implements OnInit {
     });
   }
 
-  loadAppointments(patient_id : string) {
+  loadAppointments(patient_id: string) {
     this.appointmentService.getAppointmentsForPatient(patient_id).subscribe(appointments => {
       this.appointments = appointments;
       console.log(appointments);

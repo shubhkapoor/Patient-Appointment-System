@@ -12,22 +12,22 @@ export class PatientListComponent implements OnInit {
   patients: Patient[] = [];
   filteredPatients: Patient[] = [];
   searchQuery: string = "";
-  
-  constructor(private patientService : PatientService) {}
-  
+
+  constructor(private patientService: PatientService) { }
+
   ngOnInit(): void {
     this.getPatientList();
   }
 
   getPatientList() {
-    this.patientService.listsPatient().subscribe(patients=> {
-      this.patients = patients;
-      this.filteredPatients = patients;
+    this.patientService.listsPatient().subscribe(patients => {
+      this.patients = patients.sort((a, b) => a.name.localeCompare(b.name));;
+      this.filteredPatients = patients.sort((a, b) => a.name.localeCompare(b.name));;
     });
   }
 
   searchPatients() {
-    if(this.searchQuery.trim() !== '') {
+    if (this.searchQuery.trim() !== '') {
       this.filteredPatients = this.patients.filter(patient =>
         patient.name.toLowerCase().includes(this.searchQuery.toLowerCase())
       );

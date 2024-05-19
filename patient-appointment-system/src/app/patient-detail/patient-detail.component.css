@@ -5,8 +5,23 @@
 }
 
 ol li {
-    font-weight:bold;
+    font-weight: bold;
 }
-li > div {
-    font-weight:normal;
+
+li>div {
+    font-weight: normal;
+}
+
+table,
+th,
+td {
+    border: 1px solid black;
+}
+
+table {
+    width: 500px;
+}
+
+h2 {
+    margin-bottom: 10px;
 }

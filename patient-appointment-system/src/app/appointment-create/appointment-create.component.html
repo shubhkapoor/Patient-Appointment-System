@@ -1,44 +1,34 @@
 <div class="container">
-    <div>
-        <h2 style="text-align: center; margin-top: 10px; margin-bottom: 10px;">Create Appointment</h2>
-    </div>
-    
-    <!-- 
-    <form (ngSubmit)="createAppointment()">
-        <label>Patient ID:</label>
-        <input type="text" name="PatientId" [(ngModel)]="patient_id" required>
-        <label>Date & Time:</label>
-        <input type="datetime-local" name="DateTime" [(ngModel)]="appointment_date_time" required>
-        <label>Notes:</label>
-        <textarea name="Notes" [(ngModel)]="notes"></textarea>
-        <button type="submit">Create Appointment</button>
-    </form>
-    
-     -->
-    
-    <div class="">
-        <form (ngSubmit)="createAppointment()">
-            <div class="form-group">
-                <label>Patient Name/ Mobile No:</label>
-                <select id="patient" class="form-control" name="patient" [(ngModel)]="selectedPatientId" required>
-                    <option value="" disabled>Select a patient</option>
-                    <option *ngFor="let patient of patients" [value]="patient.id">{{ patient.name }} - {{patient.mobile}} </option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label>Date & Time:</label>
-                <input type="datetime-local" class="form-control" style="width: 500px;" placeholder="Date and Time"
-                    name="DateTime" [(ngModel)]="appointment_date_time" required>
-            </div>
-            <div class="form-group">
-                <label>Notes:</label>
-                <textarea name="Notes" class="form-control" style="width: 500px;" rows="3" placeholder="notes"
-                    [(ngModel)]="notes"></textarea>
-            </div>
-            <div class="form-group">
-                <button type="submit" class="form-control btn btn-success" style="width: 250px;"
-                    style="width: 250px;">Schedule Appointment</button>
-            </div>
-        </form>
+    <div class="container-fluid">
+        <div>
+            <h2>Create Appointment</h2>
+        </div>
+
+        <div class="center">
+            <form (ngSubmit)="createAppointment()">
+                <div class="form-group">
+                    <label>Patient Name/ Mobile No:</label>
+                    <select id="patient" class="form-control" name="patient" [(ngModel)]="selectedPatientId" required>
+                        <option value="" disabled>Select a patient</option>
+                        <option *ngFor="let patient of patients" [value]="patient.id">{{ patient.name }} -
+                            {{patient.mobile}} </option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Date & Time:</label>
+                    <input type="datetime-local" class="form-control" style="width: 500px;" placeholder="Date and Time"
+                        name="DateTime" [(ngModel)]="appointment_date_time" required>
+                </div>
+                <div class="form-group">
+                    <label>Notes:</label>
+                    <textarea name="Notes" class="form-control" style="width: 500px;" rows="3" placeholder="Add Notes"
+                        [(ngModel)]="notes"></textarea>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="form-control btn btn-success"
+                        style="width: 200px; display: block; margin: 0 auto;">Schedule Appointment</button>
+                </div>
+            </form>
+        </div>
     </div>
 </div>

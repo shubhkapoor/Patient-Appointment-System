@@ -1,60 +1,38 @@
-<div class="container">
+<div class="container color-list">
     <div class="container-fluid">
-        <h2 style="text-align: center; margin-top: 10px; margin-bottom: 10px;">Patient List</h2>
-    <!-- 
-<ul>
-    <li *ngFor="let patient of patients">
-        <span>Name: {{ patient.name }} || </span>
-        <span>Mobile: {{ patient.mobile }} || </span>
-        <span>Email: {{ patient.email }} || </span>
-    </li>
-</ul> -->
+        <h2>Patient List</h2>
 
-
-    <!-- <div class="form-inline">
-    <label class="sr-only" for="inlineFormInputGroup">Search</label>
-    <div class="input-group mb-2">
-        <div class="input-group-prepend">
-            <div class="input-group-text">
-                <i class="fa fa-search"></i>
+        <div class="center" style="width: 60%;">
+            <div class="mb-2">
+                <input type="text" [(ngModel)]="searchQuery" (input)="searchPatients()" placeholder="Search by name"
+                    class="search">
+                <button (click)="searchPatients()" class="btnSearch"><i class="fa fa-search"
+                        aria-hidden="true"></i></button>
             </div>
+
+
+
+            <table class="table table-bordered center" style="width:100%">
+                <thead>
+                    <tr>
+                        <th class="table-info" scope="col" style="width: 15%;">S.No.</th>
+                        <th class="table-info" scope="col">Name / Mobile No.</th>
+                        <th class="table-info" scope="col" style="width: 20%;">View Details</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let patient of filteredPatients; index as i">
+                        <th scope="row">{{i+1}}.</th>
+                        <td>{{ patient.name }} / {{ patient.mobile }}</td>
+                        <td style="text-align: center;">
+                            <a [routerLink]="['/patient', patient.id]"><i class="fa fa-eye"
+                                    style="color: black;"></i></a>
+                        </td>
+
+
+                    </tr>
+                </tbody>
+            </table>
         </div>
-        <input type="search" class="form-control" placeholder="Search by Branch Name" [(ngModel)]="searchQuery"
-            (input)="searchFilter()">
-    </div>
-</div> -->
-
-
-    <div class="mb-2">
-        <input type="text" [(ngModel)]="searchQuery" (input)="searchPatients()" placeholder="Search by name">
-        <button (click)="searchPatients()">Search</button>
-    </div>
-
-
-
-    <table class="table table-bordered">
-        <thead>
-            <tr>
-                <th scope="col" style="width: 20px;">S.No.</th>
-                <th scope="col" style="width: 50px;">Name</th>
-                <!-- <th scope="col" style="width: 50px;">Mobile</th>
-                <th scope="col" style="width: 50px;">Email</th> -->
-                <th scope="col" style="width: 50px;">View Details</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let patient of filteredPatients; index as i">
-                <th scope="row">{{i+1}}</th>
-                <td>{{ patient.name }}</td>
-                <!-- <td>{{ patient.mobile }}</td>
-                <td>{{ patient.email }}</td> -->
-                <td>
-                    <a [routerLink]="['/patient', patient.id]"><i class="fa fa-eye" style="color: black;"></i></a>
-                </td>
-
-
-            </tr>
-        </tbody>
-    </table>
     </div>
 </div>

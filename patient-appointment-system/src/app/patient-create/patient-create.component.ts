@@ -9,25 +9,29 @@ import { Router } from '@angular/router';
 })
 export class PatientCreateComponent {
 
-  name:string = '';
-  mobile:string = '';
-  email:string = '';
+  name: string = '';
+  mobile: string = '';
+  email: string = '';
 
-  constructor(private patientService : PatientService, private router : Router) {}
+  constructor(private patientService: PatientService, private router: Router) { }
 
   createPatient() {
 
-    if(this.name === "" || this.name === "" || this.email === ""){
-      
+    if (this.name === "" || this.name === "" || this.email === "") {
+
       alert("Enter all fields!!")
-      
+
       return;
     }
 
-    this.patientService.createPatient({id: "", name: this.name, mobile: this.mobile, email: this.email}).subscribe(()=>{
+    this.patientService.createPatient({ id: "", name: this.name, mobile: this.mobile, email: this.email }).subscribe(() => {
       console.log("Patient created successfully");
-      
-      this.router.navigate(['/patients']);
+
+      this.router.navigate(['/']).then(nav => {
+        window.alert('Patient created Successfully!!!');
+      }, err => {
+        console.log(err);
+      });
     });
   }
 
