@@ -6,3 +6,7 @@
 h2 {
     margin-bottom: 40px;
 }
+
+th,tr {
+    text-align: center;
+}

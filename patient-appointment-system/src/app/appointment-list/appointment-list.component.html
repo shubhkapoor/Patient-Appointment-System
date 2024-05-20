@@ -5,7 +5,7 @@
                 Scheduled</h2>
         </div>
 
-        <div div class="center" style="width: 80%;">
+        <div div class="center" style="width: 100%;">
             <table class="table table-bordered">
                 <thead>
                     <tr>
@@ -13,6 +13,7 @@
                         <th class="table-info" scope="col">Patient Name / Mobile No.</th>
                         <th class="table-info" scope="col">Date & Time</th>
                         <th class="table-info" scope="col">Notes</th>
+                        <th class="table-info" scope="col">Payment Id</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -21,6 +22,7 @@
                         <td scope="row"> {{ appointment.patientName }} / {{ appointment.mobile }} </td>
                         <td scope="row"> {{ appointment.appointment_date_time | date: 'medium' }} </td>
                         <td scope="row"> {{ appointment.notes }} </td>
+                        <td scope="row"> {{ appointment.paymentId }} </td>
                     </tr>
                 </tbody>
             </table>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Appointment } from '../appointment';
 import { AppointmentService } from '../appointment.service';
 import { PatientService } from '../patient.service';
+import { PaymentService } from '../payment.service';
 
 @Component({
   selector: 'app-appointment-list',
@@ -13,7 +14,7 @@ export class AppointmentListComponent implements OnInit {
   appointments: any[] = [];
   patientId: string = '';
 
-  constructor(private appointmentService: AppointmentService, private patientService: PatientService) { }
+  constructor(private appointmentService: AppointmentService, private patientService: PatientService, private paymentService : PaymentService) { }
 
   ngOnInit(): void {
     this.loadAppointments();
@@ -24,6 +25,7 @@ export class AppointmentListComponent implements OnInit {
       // this.appointments = appointments;
       this.appointments = appointments.sort((a, b) => new Date(a.appointment_date_time).getTime() - new Date(b.appointment_date_time).getTime())
       this.getAppointmentPatientNames();
+      this.getPaymentId();
     });
   }
 
@@ -37,6 +39,14 @@ export class AppointmentListComponent implements OnInit {
     })
   }
 
+  getPaymentId() {
+    this.appointments.forEach(appointment => {
+      this.paymentService.getPaymentById(appointment.id).subscribe(payment => {
+        // console.log(payment);
+        appointment.paymentId = payment.payment_intent_id;
+      })
+    })
+  }
 
 
 }

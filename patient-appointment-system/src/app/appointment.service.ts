@@ -25,8 +25,4 @@ export class AppointmentService {
   getAppointmentsForPatient(patientId: string): Observable<Appointment[]> {
     return this.http.get<Appointment[]>(`${this.apiurl}/${patientId}/appointments`);
   }
-
-  generatePaymentLink(appointmentId: string): Observable<any> {
-    return this.http.post<any>(`${this.apiurl}/${appointmentId}/payment-link`, {});
-  }
 }
