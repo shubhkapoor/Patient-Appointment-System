@@ -27,7 +27,7 @@ The Patient Appointment System is a web application designed to streamline the p
 
 1. Clone the repository:
 
-   https://github.com/shubhkapoor/Patient-Appointment-System.git
+   git clone -b master https://github.com/shubhkapoor/Patient-Appointment-System.git
 
 2. Navigate to the project directory:
 
