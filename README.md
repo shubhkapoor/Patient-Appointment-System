@@ -27,19 +27,19 @@ The Patient Appointment System is a web application designed to streamline the p
 
 1. Clone the repository:
 
-- https://github.com/shubhkapoor/Patient-Appointment-System.git
+   https://github.com/shubhkapoor/Patient-Appointment-System.git
 
 2. Navigate to the project directory:
 
-- cd patient-appointment-system
+   cd patient-appointment-system
 
 3. Install dependencies for the frontend and backend:
 
-- cd patient-appointment-system
-- npm install
+   cd patient-appointment-system
+   npm install
 
-- cd ../API
-- npm install
+   cd ../API
+   npm install
 
 4. Set up the database:
 
@@ -51,13 +51,13 @@ The Patient Appointment System is a web application designed to streamline the p
 
 6. Start the backend server:
 
-- cd API
-- npm start
+   cd API
+   npm start
 
 7. Start the frontend development server:
 
-- cd patient-appointment-system
-- ng serve
+   cd patient-appointment-system
+   ng serve
 
 8. Access the application:
 
